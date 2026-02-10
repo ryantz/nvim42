@@ -2,6 +2,8 @@
 --   Minimal NeoVim for 42
 -- =========================
 -- Install lazy.nvim (plugin manager)
+vim.g.mapleader = " "
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -74,13 +76,52 @@ require("lazy").setup({
 		  vim.cmd("colorscheme paper")
 	  end,
 	},
+	{
+	  "silentium-theme/silentium.nvim",
+	  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	  priority = 1000, -- make sure to load this before all the other start plugins
+	  config = function()
+		  vim.cmd("colorscheme silentium")
+	  end,
+	},
+	{
+    	'MeanderingProgrammer/render-markdown.nvim',
+    	dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },            -- if you use the mini.nvim suite
+    	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+    	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    	---@module 'render-markdown'
+    	---@type render.md.UserConfig
+    	opts = {},
+	},
+	{
+    	"kdheepak/lazygit.nvim",
+    	lazy = true,
+    	cmd = {
+    	    "LazyGit",
+    	    "LazyGitConfig",
+    	    "LazyGitCurrentFile",
+    	    "LazyGitFilter",
+    	    "LazyGitFilterCurrentFile",
+    	},
+    	-- optional for floating window border decoration
+    	dependencies = {
+    	    "nvim-lua/plenary.nvim",
+    	},
+    	-- setting the keybinding for LazyGit with 'keys' is recommended in
+    	-- order to load the plugin when the command is run for the first time
+    	keys = {
+    	{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    	}
+    },
 })
 
 -- =========================
 -- Editor Settings
 -- =========================
-vim.o.background = "light"
+vim.o.background = "dark"
+--vim.o.background = "light"
 vim.cmd.colorscheme("paper")
+
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr-o:block"
 
 -- Line at 80 chars (42 norm)
@@ -101,7 +142,6 @@ vim.opt.number = true
 -- =========================
 -- Keymaps
 -- =========================
-vim.g.mapleader = " "
 
 -- Telescope
 vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
