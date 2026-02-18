@@ -1,0 +1,18 @@
+return {
+    {
+  		'stevearc/oil.nvim',
+  		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		config = function()
+			require("oil").setup {
+				columns = {"icon"},
+				view_options = {
+				show_hidden = true,
+				},
+			}
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+		end,
+  		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  		lazy = false,
+	},
+}

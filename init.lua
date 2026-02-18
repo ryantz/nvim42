@@ -33,16 +33,8 @@ require("lazy").setup({
 			vim.g.mail42 = "ryatan@student.42singapore.sg"
 		end
     },
-	{
-  		"nvim-treesitter/nvim-treesitter",
-  		build = ":TSUpdate",
-  		config = function()
-  		  require'nvim-treesitter.configs'.setup {
-  		    ensure_installed = { "c", "lua", "python", "bash" },
-  		    highlight = { enable = true },
-  		  }
-  		end,
-	},
+	
+
 	{
 		 'RostislavArts/naysayer.nvim',
 		 priority = 1000,
@@ -77,14 +69,6 @@ require("lazy").setup({
 	  end,
 	},
 	{
-	  "silentium-theme/silentium.nvim",
-	  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-	  priority = 1000, -- make sure to load this before all the other start plugins
-	  config = function()
-		  vim.cmd("colorscheme silentium")
-	  end,
-	},
-	{
     	'MeanderingProgrammer/render-markdown.nvim',
     	dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },            -- if you use the mini.nvim suite
     	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
@@ -113,6 +97,30 @@ require("lazy").setup({
     	{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     	}
     },
+	{
+  		'stevearc/oil.nvim',
+  		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		config = function()
+			require("oil").setup {
+				columns = {"icon"},
+				view_options = {
+				show_hidden = true,
+				},
+			}
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+		end,
+  		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  		lazy = false,
+	},
+	{
+    	'AlexvZyl/nordic.nvim',
+    	lazy = false,
+    	priority = 1000,
+    	config = function()
+    	    require('nordic').load()
+    	end
+	},
 })
 
 -- =========================
@@ -120,7 +128,7 @@ require("lazy").setup({
 -- =========================
 vim.o.background = "dark"
 --vim.o.background = "light"
-vim.cmd.colorscheme("paper")
+vim.cmd.colorscheme("nordic")
 
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr-o:block"
 
@@ -157,5 +165,8 @@ vim.keymap.set("n", "<leader>nn", ":NoNeckPain<CR>", { desc = "No neck pain" })
 vim.keymap.set("n", "<leader>\\", ":vsplit<CR>", { desc = "vertical split in nvim" })
 vim.keymap.set("n", "<leader>-", ":split<CR>", { desc = "horizontal split in nvim" })
 vim.keymap.set("n", "<leader>c", "<C-w>c", { desc = "close split in nvim" })
-
+vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "leader vim movement for navigating splits" })
+vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "leader vim movement for navigating splits" })
+vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "leader vim movement for navigating splits" })
+vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "leader vim movement for navigating splits" })
 
