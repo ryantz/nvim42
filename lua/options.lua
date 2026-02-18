@@ -1,6 +1,5 @@
 vim.o.background = "dark"
 --vim.o.background = "light"
-vim.cmd.colorscheme("nordic")
 
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr-o:block"
 

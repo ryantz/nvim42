@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-require("lua.lazy")
-require("lua.options")
-require("lua.keymaps")
+require("plugins")
+require("options")
+require("keymaps")
 
