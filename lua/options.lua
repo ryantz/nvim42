@@ -17,9 +17,6 @@ vim.opt.cursorline = true
 
 -- Numbers
 vim.opt.number = true
-<<<<<<< Updated upstream
-=======
-
 vim.opt.termguicolors = true
 vim.cmd.colorscheme('thorn-dark-warm')
 
@@ -39,4 +36,3 @@ vim.api.nvim_set_hl(0, "Whitespace", { fg = "#444444" })
 --  ============================================================
 vim.opt.tags:append("/usr/include/GLFW/tags")
 vim.opt.tags:append("/usr/include/GL/tags")
->>>>>>> Stashed changes
