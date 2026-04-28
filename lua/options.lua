@@ -1,5 +1,5 @@
-vim.o.background = "dark"
 --vim.o.background = "light"
+vim.o.background = "dark"
 
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr-o:block"
 
