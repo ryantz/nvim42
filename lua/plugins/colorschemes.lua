@@ -10,9 +10,15 @@ return {
         terminal = true, -- terminal colors
 
         styles = {
+<<<<<<< Updated upstream
             keywords = { italic = true, bold = false },
             comments = { italic = true, bold = false },
             strings  = { italic = true, bold = false },
+=======
+            keywords = { italic = false, bold = true },
+            comments = { italic = false, bold = false },
+            strings  = { italic = false, bold = false },
+>>>>>>> Stashed changes
 
             diagnostic = {
                 underline = true, -- if true, flat underlines will be used. Otherwise, undercurls will be used
@@ -27,7 +33,10 @@ return {
 
         on_highlights = function(hl, palette) end, -- apply your own highlights
     },
+<<<<<<< Updated upstream
     config = function()
 	    vim.cmd([[colorscheme thorn]])
     end
+=======
+>>>>>>> Stashed changes
 }
