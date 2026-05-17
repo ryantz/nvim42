@@ -23,3 +23,6 @@ vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
 vim.keymap.set("n", "<leader>e", "<C-w>=")
+
+-- update vim.pack
+vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })

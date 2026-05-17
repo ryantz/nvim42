@@ -1,18 +1,11 @@
-return {
-    {
-    	'MeanderingProgrammer/render-markdown.nvim',
-    	dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },            -- if you use the mini.nvim suite
-    	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
-    	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    	---@module 'render-markdown'
-    	---@type render.md.UserConfig
-    	opts = {},
-	},
-    {
-        "42Paris/42header",
-		config = function()
-			vim.g.user42 = "ryatan"
-			vim.g.mail42 = "ryatan@student.42singapore.sg"
-		end
-    },
-}
+vim.pack.add({
+    "https://github.com/nvim-mini/mini.nvim",
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+    "https://github.com/42Paris/42header",
+})
+
+-- render-markdown has no setup needed for default config
+-- require("render-markdown").setup({})  -- uncomment if you need custom opts
+
+vim.g.user42 = "ryatan"
+vim.g.mail42 = "ryatan@student.42singapore.sg"

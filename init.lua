@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-require("plugins")
 require("options")
+require("plugins")
 require("keymaps")
 require("vim-lsp")
