@@ -33,6 +33,7 @@ require("lazy").setup({
     { import = "plugins.git" },
     { import = "plugins.misc" },
     { import = "plugins.oil" },
+    { import = "plugins.mason" },
     { import = "plugins.telescope" },
     { import = "plugins.treesitter" },
 })

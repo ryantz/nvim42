@@ -8,7 +8,6 @@ return {
     	---@type render.md.UserConfig
     	opts = {},
 	},
-    { "shortcuts/no-neck-pain.nvim" },
     {
         "42Paris/42header",
 		config = function()

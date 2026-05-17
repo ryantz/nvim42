@@ -3,11 +3,13 @@ vim.o.background = "dark"
 
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr-o:block"
 
--- Line at 80 chars (42 norm)
+-- Line at 80 chars
 vim.opt.colorcolumn = "80"
---vim.cmd [[
---    highlight ColorColumn ctermbg=NONE guibg=#FF0000
---]]
+
+vim.opt.scrollbind = false
+vim.opt.lazyredraw = false
+vim.opt.cursorbind = false
+vim.opt.splitkeep = "screen"
 
 -- Tabs — required by 42 Norm
 vim.opt.tabstop = 4
@@ -19,6 +21,7 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.termguicolors = true
 vim.cmd.colorscheme('thorn-dark-warm')
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#FFFFFF" })
 
 vim.opt.list = true
 vim.opt.listchars = {
