@@ -19,14 +19,12 @@ vim.opt.termguicolors = true
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
-        vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#FFFFFF" })
         vim.api.nvim_set_hl(0, "Whitespace",  { fg = "#2a3f40" })
         vim.api.nvim_set_hl(0, "SpecialKey",  { fg = "#2a3f40" })
         vim.api.nvim_set_hl(0, "NonText",     { fg = "#2a3f40" })
     end,
 })
 
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#FFFFFF" })
 vim.api.nvim_set_hl(0, "Whitespace",  { fg = "#2a3f40" })
 vim.api.nvim_set_hl(0, "SpecialKey",  { fg = "#2a3f40" })
 vim.api.nvim_set_hl(0, "NonText",     { fg = "#2a3f40" })
